@@ -1,6 +1,6 @@
 // Write a function that returns all elements of array except first element
 
-function expectFirst (elements) {
+function exceptFirst (elements) {
     const [ , ...rest ] = elements;
     return rest;
 }
