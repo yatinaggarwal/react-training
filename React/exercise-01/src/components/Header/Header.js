@@ -1,12 +1,17 @@
 import React from 'react';
+import logo from '../../logo.svg'
 
-const Header = (props) => {
+const Header = React.forwardRef((props, ref) => {
   return (
     <div>
-      <img src="" alt="logo" />
-      <h1>Shopping Portal</h1>
+      <img src={logo} alt="logo" className="App-logo" />
+      <header style={{textAlign: "center"}}>
+        <h1>Shopping Portal</h1>
+        <input type="text" ref={ref}/>
+        <button onClick={props.onSearchClicked}>Search</button>
+      </header>
     </div>
   )
-}
+});
 
 export default Header;
