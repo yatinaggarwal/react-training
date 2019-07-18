@@ -7,7 +7,7 @@ const Header = React.forwardRef((props, ref) => {
       <img src={logo} alt="logo" className="App-logo" />
       <header style={{textAlign: "center"}}>
         <h1>Shopping Portal</h1>
-        <input type="text" ref={ref}/>
+        <input className="searchInput" type="text" ref={ref}/>
         <button onClick={props.onSearchClicked}>Search</button>
       </header>
     </div>
