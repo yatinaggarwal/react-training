@@ -3,57 +3,15 @@ import Header from './components/Header/Header';
 import Products from './components/Products/Products';
 import Modal from './components/Modal/Modal';
 import Product from './components/Products/Product/Product';
-import productsData from './data/productsData.json';
 import './App.css';
+import * as actionTypes from './store/actions';
+import { connect } from 'react-redux';
 
 class App extends Component {
 
-  constructor() {
-    super();
-    this.cartItems = this.getCartDetails();
-    this.inputElRef = React.createRef();
-  }
-
   state = {
-    products: [...productsData],
-    cartItemCount: this.cartItems ? Object.values(this.cartItems).reduce((totalCount, itemCount) => (totalCount + itemCount), 0) : 0,
     isModalOpen: false,
     quickViewProductDetail: null
-  }
-
-  onSearchClickedHandler = () => {
-    // console.log(searchString);
-
-    let searchTerm = this.inputElRef.current.value;
-    console.log(searchTerm);
-    console.log(productsData);
-    let productsResult = productsData.filter(product => product.Name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      product.Category.toLowerCase().includes(searchTerm.toLowerCase()) || product.MainCategory.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.Description.toLowerCase().includes(searchTerm.toLowerCase()));
-    console.log(productsResult);
-    this.setState({
-      products: productsResult      
-    });
-  }
-
-  getCartDetails = () => {
-    let cartItems = localStorage.cartItems ? JSON.parse(localStorage.cartItems) : {};
-    // console.log('getCartDetailsFunction', cartItems);
-    return cartItems;
-  }
-
-  addToCartClickHandler = (productId) => {
-    // console.log(productId);
-    let cartDetails = this.getCartDetails();
-    if(!cartDetails[productId]) {
-      cartDetails[productId] = 0;
-    }
-    cartDetails[productId] += 1;
-    // console.log('addToCartClickHandler', cartDetails);
-    localStorage.setItem('cartItems', JSON.stringify(cartDetails));
-    this.setState(state => {
-      return {cartItemCount: state.cartItemCount + 1}
-    })
   }
 
   quickViewClickHandler = (productDetail) => {
@@ -81,12 +39,12 @@ class App extends Component {
     }
     return (
       <div>
-        <Header onSearchClicked={this.onSearchClickedHandler} ref={this.inputElRef} />
-        <h3 style={{textAlign: "center"}}>Cart Count: {this.state.cartItemCount}</h3>
+        <Header onSearchClicked={this.props.onSearchClick} ref={inputElRef} />
+        <h3 style={{textAlign: "center"}}>Cart Count: {this.props.cartItemCount}</h3>
         <Products
-          allProductsDetails={this.state.products}
+          allProductsDetails={this.props.products}
           onProductQuickView={this.quickViewClickHandler}
-          onAddToCart={this.addToCartClickHandler}
+          onAddToCart={this.props.onAddToCart}
         />
         {modalTemplate}
       </div>      
@@ -94,4 +52,20 @@ class App extends Component {
   }
 }
 
-export default App;
+let inputElRef = React.createRef();
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.products,
+    cartItemCount: state.cartItemCount
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddToCart: (productId) => dispatch({type: actionTypes.ADD_PRODUCT_IN_CART, productId: productId}),
+    onSearchClick: () => dispatch({type: actionTypes.SEARCH_FOR_PRODUCTS, inputElRef: inputElRef})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
