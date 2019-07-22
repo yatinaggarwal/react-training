@@ -7,6 +7,30 @@
       "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
       "Name": "Notebook Basic 15",
       "Price": 956
+    },
+    {
+      "ProductId": "HT-1001",
+      "Category": "Laptops",
+      "MainCategory": "Computer Systems",
+      "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
+      "Name": "Notebook Basic 15",
+      "Price": 956
+    },
+    {
+      "ProductId": "HT-1002",
+      "Category": "Laptops",
+      "MainCategory": "Computer Systems",
+      "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
+      "Name": "Notebook Basic 15",
+      "Price": 956
+    },
+    {
+      "ProductId": "HT-1003",
+      "Category": "Laptops",
+      "MainCategory": "Computer Systems",
+      "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
+      "Name": "Notebook Basic 15",
+      "Price": 956
     }
   ]
 }
