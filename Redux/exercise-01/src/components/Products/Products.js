@@ -10,7 +10,7 @@ const Products = (props) => {
     productTemplate = allProductsDetails.map(product => {
       return (
         <li key={product.ProductId}>
-          <div className="product-wrapper">
+          <div className="product-container">
             <Product productDetail={product} showFullDesc={false}/>
             <div>
               <button type="button" onClick={() => onProductQuickView(product)}>Quick View</button>
@@ -22,10 +22,10 @@ const Products = (props) => {
     });
     productTemplate = <ul>{productTemplate}</ul>
   } else {
-    productTemplate = 'No products are currently available';
+    productTemplate = <i>No products are currently available</i>;
   }
   return (
-    <div>{productTemplate}</div>
+    <main>{productTemplate}</main>
   )
 }
 

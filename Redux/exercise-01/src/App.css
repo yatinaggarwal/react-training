@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #eaeaea;
 }
@@ -8,8 +12,8 @@ body {
   pointer-events: none;
 }
 
-* {
-  box-sizing: border-box;
+main {
+  text-align: center;
 }
 
 ul {
@@ -47,7 +51,7 @@ button {
   z-index: 10;
 }
 
-.content {
+.modal {
   width: 45%;
   position: fixed;
   top: 45%;
@@ -73,7 +77,7 @@ button {
   flex-wrap: wrap;
 }
 
-.product-wrapper {
+.product-container {
   width:300px;
   padding: 1rem;
   box-shadow: 0px 0px 15px rgba(0,0,0,0.7);

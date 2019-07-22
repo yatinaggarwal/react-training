@@ -40,7 +40,9 @@ class App extends Component {
     return (
       <div>
         <Header onSearchClicked={this.props.onSearchClick} ref={inputElRef} />
-        <h3 style={{textAlign: "center"}}>Cart Count: {this.props.cartItemCount}</h3>
+        <section>
+          <h3 style={{textAlign: "center"}}>Cart Count: {this.props.cartItemCount}</h3>
+        </section>
         <Products
           allProductsDetails={this.props.products}
           onProductQuickView={this.quickViewClickHandler}
