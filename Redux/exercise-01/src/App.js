@@ -4,7 +4,7 @@ import Products from './components/Products/Products';
 import Modal from './components/Modal/Modal';
 import Product from './components/Products/Product/Product';
 import './App.css';
-import * as actionTypes from './store/actions';
+import * as Actions from './store/actions';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -39,7 +39,7 @@ class App extends Component {
     }
     return (
       <div>
-        <Header onSearchClicked={this.props.onSearchClick} ref={inputElRef} />
+        <Header onSearchClicked={this.props.onSearchClick.bind(null, inputElRef)} ref={inputElRef} />
         <section>
           <h3 style={{textAlign: "center"}}>Cart Count: {this.props.cartItemCount}</h3>
         </section>
@@ -65,8 +65,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddToCart: (productId) => dispatch({type: actionTypes.ADD_PRODUCT_IN_CART, productId: productId}),
-    onSearchClick: () => dispatch({type: actionTypes.SEARCH_FOR_PRODUCTS, inputElRef: inputElRef})
+    onSearchClick: (searchInputRef) => dispatch(Actions.searchForProducts(searchInputRef)),
+    onAddToCart: (productId) => dispatch(Actions.addProductInCart(productId))
   }
 }
 

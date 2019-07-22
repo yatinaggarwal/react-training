@@ -6,7 +6,7 @@ const Products = (props) => {
   let { allProductsDetails, onProductQuickView, onAddToCart } = props;
   let productTemplate = null;
 
-  if(allProductsDetails.length) {
+  if(allProductsDetails) {
     productTemplate = allProductsDetails.map(product => {
       return (
         <li key={product.ProductId}>

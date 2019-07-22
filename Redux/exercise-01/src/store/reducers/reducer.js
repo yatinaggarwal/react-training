@@ -1,5 +1,5 @@
-import * as actionTypes from './actions';
-import productsData from '../data/productsData.json';
+import * as actionTypes from '../actions/actionTypes';
+import productsData from '../../data/productsData.json';
 
 const getCartDetails = () => {
   let cartItems = localStorage.cartItems ? JSON.parse(localStorage.cartItems) : {};
@@ -20,7 +20,7 @@ const onSearchClickedHandler = (inputElRef) => {
   let productsResult = productsData.filter(product => product.Name.toLowerCase().includes(searchTerm.toLowerCase()) || 
     product.Category.toLowerCase().includes(searchTerm.toLowerCase()) || product.MainCategory.toLowerCase().includes(searchTerm.toLowerCase()) ||
     product.Description.toLowerCase().includes(searchTerm.toLowerCase()));
-    return productsResult;
+    return productsResult.length ? productsResult : null;
 }
 
 let cartItems = getCartDetails();
