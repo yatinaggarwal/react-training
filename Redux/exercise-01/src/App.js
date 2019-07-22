@@ -7,6 +7,8 @@ import './App.css';
 import * as Actions from './store/actions';
 import { connect } from 'react-redux';
 
+// https://my-json-server.typicode.com/yatinaggarwal/react-training/products
+
 class App extends Component {
 
   state = {
