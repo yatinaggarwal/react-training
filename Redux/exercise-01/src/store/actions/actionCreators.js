@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import axios from 'axios';
 
 export const searchForProducts = (searchInputRef) => {
   return {
@@ -13,3 +14,25 @@ export const addProductInCart = (productId) => {
     productId: productId
   };
 };
+
+export let initProductsDetail = null;
+
+export const setProducts = (products) => {
+  initProductsDetail = products;
+  return {
+    type: actionTypes.SET_PRODUCTS,
+    products: products
+  }
+}
+
+export const initProducts = () => {
+  return dispatch => {
+    axios.get('https://my-json-server.typicode.com/yatinaggarwal/react-training/products')
+      .then(response => {
+        dispatch(setProducts(response.data));
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+}

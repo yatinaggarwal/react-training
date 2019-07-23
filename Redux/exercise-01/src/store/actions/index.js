@@ -1,1 +1,1 @@
-export { searchForProducts, addProductInCart } from './actionCreators';
+export { searchForProducts, addProductInCart, initProducts } from './actionCreators';

@@ -16,6 +16,10 @@ class App extends Component {
     quickViewProductDetail: null
   }
 
+  componentDidMount() {
+    this.props.onInitProducts();
+  }  
+
   quickViewClickHandler = (productDetail) => {
     console.log(productDetail);
     this.setState({
@@ -68,7 +72,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchClick: (searchInputRef) => dispatch(Actions.searchForProducts(searchInputRef)),
-    onAddToCart: (productId) => dispatch(Actions.addProductInCart(productId))
+    onAddToCart: (productId) => dispatch(Actions.addProductInCart(productId)),
+    onInitProducts: () => dispatch(Actions.initProducts())
   }
 }
 

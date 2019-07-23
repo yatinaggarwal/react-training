@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
-import productsData from '../../data/productsData.json';
+import { initProductsDetail } from '../actions/actionCreators';
+// import productsData from '../../data/productsData.json';
 
 const getCartDetails = () => {
   let cartItems = localStorage.cartItems ? JSON.parse(localStorage.cartItems) : {};
@@ -17,7 +18,7 @@ const addToCartClickHandler = (productId) => {
 
 const onSearchClickedHandler = (inputElRef) => {
   let searchTerm = inputElRef.current.value;
-  let productsResult = productsData.filter(product => product.Name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+  let productsResult = initProductsDetail.filter(product => product.Name.toLowerCase().includes(searchTerm.toLowerCase()) || product.ProductId.toLowerCase().includes(searchTerm.toLowerCase()) || 
     product.Category.toLowerCase().includes(searchTerm.toLowerCase()) || product.MainCategory.toLowerCase().includes(searchTerm.toLowerCase()) ||
     product.Description.toLowerCase().includes(searchTerm.toLowerCase()));
     return productsResult.length ? productsResult : null;
@@ -26,7 +27,8 @@ const onSearchClickedHandler = (inputElRef) => {
 let cartItems = getCartDetails();
 
 const initialState = {
-  products: [...productsData],
+  // products: [...productsData],
+  products: null,
   cartItemCount: cartItems ? Object.values(cartItems).reduce((totalCount, itemCount) => (totalCount + itemCount), 0) : 0,
 }
 
@@ -42,6 +44,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         products: onSearchClickedHandler(action.inputElRef)
+      }
+    case actionTypes.SET_PRODUCTS:
+      return {
+        ...state,
+        products: action.products
       }
     default:
       return state;
