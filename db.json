@@ -10,27 +10,27 @@
     },
     {
       "ProductId": "HT-1001",
-      "Category": "Laptops",
-      "MainCategory": "Computer Systems",
-      "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
-      "Name": "Notebook Basic 15",
-      "Price": 956
+      "Category": "Accessories",
+      "MainCategory": "Computer Components",
+      "Description": "Digital Organizer with State-of-the-Art Storage Encryption",
+      "Name": "ITelO Vault",
+      "Price": 299
     },
     {
       "ProductId": "HT-1002",
-      "Category": "Laptops",
-      "MainCategory": "Computer Systems",
-      "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
-      "Name": "Notebook Basic 15",
-      "Price": 956
+      "Category": "Accessories",
+      "MainCategory": "Computer Components",
+      "Description": "Digital Organizer with State-of-the-Art Encryption for Storage and Network Communications",
+      "Name": "ITelO Vault Net",
+      "Price": 459
     },
     {
       "ProductId": "HT-1003",
-      "Category": "Laptops",
-      "MainCategory": "Computer Systems",
-      "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR3 RAM, 500 GB Hard Disc, Windows 8 Pro",
-      "Name": "Notebook Basic 15",
-      "Price": 956
+      "Category": "Accessories",
+      "MainCategory": "Computer Components",
+      "Description": "32 GB Digital Assistant with high-resolution color screen",
+      "Name": "Comfort Easy",
+      "Price": 1679
     }
   ]
 }
