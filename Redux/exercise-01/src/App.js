@@ -6,8 +6,8 @@ import Product from './components/Products/Product/Product';
 import './App.css';
 import * as Actions from './store/actions';
 import { connect } from 'react-redux';
-
-// https://my-json-server.typicode.com/yatinaggarwal/react-training/products
+import axios from 'axios';
+import withErrorHandler from './hoc/withErrorHandler/withErrorHandler';
 
 class App extends Component {
 
@@ -39,7 +39,7 @@ class App extends Component {
     let modalTemplate = null;
     if(this.state.isModalOpen && this.state.quickViewProductDetail) {
       let quickViewProductDetail = {...this.state.quickViewProductDetail};
-      modalTemplate = <Modal onModalClose={this.modalCloseClickHandler} productDetail={quickViewProductDetail}>
+      modalTemplate = <Modal onModalClose={this.modalCloseClickHandler}>
                         <Product productDetail={quickViewProductDetail} showFullDesc={true} />
                       </Modal>
     }
@@ -77,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(App, axios));
